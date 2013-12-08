@@ -40,6 +40,8 @@ function updateHeader () {
     $("#total-price").text(totalPrice.toFixed(2) + "lei");
 }
 
+
+// everything ended up in init -- deadline matters
 function init () {
     $listView.empty();
     idx = 0;
