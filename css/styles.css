@@ -155,11 +155,13 @@ button:focus {
 #order-div {
     background-color: #aac789;
     width: 400px;
+    height: 500px;
+    overflow-y: auto;
 
     box-shadow: 0px 2px 5px 5px #aaa;
 
     position: fixed;
-    top: 287px;
+    top: 187px;
     left: 40px;
 }
 
