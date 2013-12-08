@@ -171,8 +171,8 @@ button:focus {
 }
 
 #order-div button {
-    position: relative;
+    position: absolute;
     left: 150px;
-    top: 10px;
+    bottom: 0px;
     background-color: #437356;
 }
