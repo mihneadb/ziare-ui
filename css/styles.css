@@ -4,27 +4,173 @@ html {
 body {
     height: 854px;
     width: 480px;
-    background-color: lightblue;
+    background-color: #ddd;
     box-shadow: 0px 2px 5px 5px #aaa;
 }
 
 #list-view {
-    overflow: auto;
-    height: 794px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 774px;
 }
 
 .item {
     border-bottom: solid #1a1a1a 1px;
     height: 150px;
-    line-height: 150px;
+}
+
+.item p {
+    margin-bottom: 0;
+}
+
+.item div {
+    height: 150px;
 }
 
 #header {
-    height: 60px;
-    padding-top: 5px;
-    background-color: green;
+    height: 80px;
+    padding-top: 15px;
+    background-color: #aac789;
+    /*background-color: #1e4147;*/
 }
 
 #header img {
-    height: 48px;
+    height: 40px;
+}
+
+.count {
+    position: relative;
+    top: 6px;
+    left: 6px;
+    font-size: 2em;
+}
+
+#buy {
+    background-image: url("../img/buy2.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    color: #000;
+    border-radius: 3px;
+
+    background-color: rgba(0,0,0,0);
+
+    position: relative;
+    top: -5px;
+    right: 10px;
+
+    opacity: 0.7;
+}
+
+.select-btn, .addon-btn {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    top: 45px;
+}
+
+.select-btn {
+    background-color: #aac789;
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.check {
+    background-image: url("../img/check.png");
+    background-color: rgba(0,0,0,0);
+}
+
+.addon-btn {
+    background-color: rgba(0,0,0,0);
+    background-image: url("../img/addon.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+
+    position: relative;
+    left: -15px;
+}
+
+.pub-category {
+    position: absolute;
+    bottom: 10px;
+    right: -50px;
+    background-color: #437356;
+    padding: 1px 15px;
+    color: lightgray;
+    opacity: 0.85;
+}
+
+.pub-title {
+    font-family: "adobe-garamond-pro", georgia;
+    font-weight: bold;
+    font-size: 1.4em;
+    position: absolute;
+    top: 50px;
+}
+
+button:hover,
+button:focus {
+    outline: 0;
+}
+
+#addon-div {
+    background-color: #aac789;
+    height: 300px;
+    width: 400px;
+
+    box-shadow: 0px 2px 5px 5px #aaa;
+
+    position: fixed;
+    top: 287px;
+    left: 40px;
+
+}
+
+#addon-div .main-row {
+    line-height: 200px;
+    margin-left: -9px;
+}
+
+#addon-div img {
+    height: 100px;
+}
+
+#book {
+    height: 150px !important;
+}
+
+#addon-clear img {
+    height: 50px;
+}
+
+#order-div {
+    background-color: #aac789;
+    width: 400px;
+
+    box-shadow: 0px 2px 5px 5px #aaa;
+
+    position: fixed;
+    top: 287px;
+    left: 40px;
+}
+
+#order-div p {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+#order-div button {
+    position: relative;
+    left: 150px;
+    top: 10px;
+    background-color: #437356;
 }

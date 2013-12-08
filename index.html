@@ -11,32 +11,53 @@
 <div id="header" class="row">
     <div class="small-4 columns">
         <img src="img/item.png" alt="Numar produse">
-        <span class="count">3</span>
+        <span id="item-count" class="count">0</span>
     </div>
-    <div class="small-4 columns">
+    <div class="small-6 columns">
         <img src="img/price.png" alt="Pret total">
-        <span class="count">3 lei</span>
+        <span id="total-price" class="count">0 lei</span>
     </div>
-    <div class="small-4 columns">
-        <img src="img/buy.png" alt="Trimite comanda">
+    <div class="small-2 columns text-right">
+        <button id="buy"></button>
     </div>
 </div>
 <div id="list-view"></div>
 
 
 <script id="item-template" type="text/x-handlebars-template">
-    <div class="row item">
+    <div class="row item" data-idx="{{idx}}" data-selected="">
         <div class="small-3 columns">
-            <button></button>
+            <button class="select-btn"></button>
         </div>
-        <div class="small-6 columns">
-            <span class="pub-title">{{title}}</span>
+        <div class="small-7 columns">
+            <p class="pub-title">{{title}}</p>
+            <p class="pub-category">{{category}}</p>
         </div>
-        <div class="small-3 columns">
-            <button></button>
+        <div class="small-2 columns">
+            <button class="addon-btn hide"></button>
         </div>
     </div>
 </script>
+
+<div id="addon-div" class="text-center hide">
+    <div class="row main-row">
+        <div class="small-6 columns" data-addon="cd">
+            <img src="img/cd.png" alt="CD"/>
+        </div>
+        <div class="small-6 columns" data-addon="book">
+            <img src="img/book.png" alt="Carte" id="book"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns small-centered" id="addon-clear" data-addon="clear">
+            <img src="img/clear.png" alt="Nimic"/>
+        </div>
+    </div>
+</div>
+
+<div id="order-div" class="hide">
+
+</div>
 
 <script src="js/jquery.js"></script>
 <script src="js/handlebars-v1.1.2.js"></script>

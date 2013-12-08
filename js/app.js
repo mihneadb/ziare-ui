@@ -26,10 +26,115 @@ var item_template =Handlebars.compile($("#item-template").html());
 
 var $listView = $("#list-view");
 
-data.forEach(function (item) {
-    console.log(item);
-    var html = item_template({
-        title: item["Publicatie"]
+var idx = 0;
+var itemCount = 0;
+var totalPrice = 0;
+
+function init () {
+    $listView.empty();
+    idx = 0;
+    data.forEach(function (item) {
+        var html = item_template({
+            title: item["Publicatie"],
+            category: item["Categorie"],
+            idx: idx
+        });
+        $listView.append(html);
+        idx++;
     });
-    $listView.append(html);
+
+    itemCount = 0;
+    totalPrice = 0;
+    updateHeader();
+}
+init();
+
+function updateHeader () {
+    $("#item-count").text(itemCount);
+    $("#total-price").text(totalPrice.toFixed(2) + "lei");
+}
+
+$(".item").on("click", function (e) {
+    $target = $(e.target).closest(".item");
+    var idx = $target.data("idx") | 0;
+    var selected = $target.data("selected");
+
+    if (selected !== "") {
+        // unselect
+        $target.data("selected", "");
+        itemCount--;
+        totalPrice -= 3.23;
+        $target.find(".select-btn").removeClass("check");
+        $target.find(".addon-btn").addClass("hide");
+    } else {
+        // select
+        $target.data("selected", "true");
+        itemCount++;
+        totalPrice += 3.23;
+        data[idx].selected = true;
+        $target.find(".select-btn").addClass("check");
+        $target.find(".addon-btn").removeClass("hide");
+    }
+    updateHeader();
 });
+
+var addonIdx = null;
+$(".addon-btn").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $target = $(e.target).closest(".item");
+    addonIdx = $target.data("idx") | 0;
+    $("#addon-div").show();
+});
+
+$("#addon-div div").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $target = $(e.target).closest("div");
+    var addon = $target.data("addon");
+
+    console.log(data[addonIdx]);
+    if (data[addonIdx].addon === undefined && addon != "clear") {
+        itemCount++;
+        totalPrice += 5;
+    }
+
+    if (data[addonIdx] !== undefined && addon === "clear") {
+        itemCount--;
+        totalPrice -= 5;
+    }
+
+    if (addon === "clear") {
+        data[addonIdx.addon] = undefined;
+    } else {
+        data[addonIdx].addon = addon;
+    }
+    updateHeader();
+
+    $("#addon-div").hide();
+});
+
+$("#buy").on("click", function () {
+    $orderDiv = $("#order-div");
+    $orderDiv.empty();
+    data.forEach(function (e) {
+        if (e.selected) {
+            var text = e["Publicatie"];
+            if (e.addon !== undefined) {
+                if (e.addon === "book") {
+                    text += " + carte";
+                } else {
+                    text += " + CD";
+                }
+            }
+            var html = "<p>" + text + "</p>";
+            $orderDiv.append($(html));
+        }
+    });
+    $orderDiv.append($("<button id=\"ok-btn\">OK</button>"));
+    $orderDiv.show();
+    $("#ok-btn").on("click", function () {
+        $orderDiv.hide();
+        init();
+    })
+})
