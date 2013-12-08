@@ -23,7 +23,7 @@ var data = [
 ];
 
 data.sort(function (a, b) {
-    return a["Categorie"] < b["Categorie"];
+    return a["Categorie"] > b["Categorie"];
 });
 
 var item_template =Handlebars.compile($("#item-template").html());
