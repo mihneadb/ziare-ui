@@ -22,6 +22,10 @@ var data = [
     {"Publicatie":"Ioana","Categorie":"Femei","Periodicitate":"Bilunar","Tip":"Platit","Arie":"National","Tiraj brut":37,"Total Vanzari":20.922,"Total difuzat":21.105}
 ];
 
+data.sort(function (a, b) {
+    return a["Categorie"] > b["Categorie"];
+});
+
 var item_template =Handlebars.compile($("#item-template").html());
 
 var $listView = $("#list-view");
