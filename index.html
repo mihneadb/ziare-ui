@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ziare</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="header">
+    <p>Numar produse: 5</p>
+    <p>Pret total: 12.3 lei</p>
+    <p>Salveaza</p>
+</div>
+<div id="list-view"></div>
+
+
+<script id="item-template" type="text/x-handlebars-template">
+    <div class="row item">
+        <div class="small-3 columns">
+            <button></button>
+        </div>
+        <div class="small-6 columns">
+            <span class="pub-title">{{title}}</span>
+        </div>
+        <div class="small-3 columns">
+            <button></button>
+        </div>
+    </div>
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/handlebars-v1.1.2.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

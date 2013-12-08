@@ -1,0 +1,20 @@
+html {
+    background-color: white;
+}
+body {
+    height: 854px;
+    width: 480px;
+    background-color: lightblue;
+    box-shadow: 0px 2px 5px 5px #aaa;
+}
+
+#list-view {
+    overflow: auto;
+    height: 100%;
+}
+
+.item {
+    border-bottom: solid #1a1a1a 1px;
+    height: 150px;
+    line-height: 150px;
+}
